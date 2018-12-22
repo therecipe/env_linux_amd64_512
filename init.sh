@@ -6,11 +6,14 @@ QT_VERSION=5.12.0
 rm -rf ./${QT_VERSION}
 rm -rf ./Licenses
 
+
 rsync -avz $QT_ROOT/Qt/${QT_VERSION}/gcc_64 ./${QT_VERSION}/
 rsync -avz $QT_ROOT/Qt/Licenses .
 
+
 rm -rf ./${QT_VERSION}/gcc_64/{doc,phrasebooks}
 rm -rf ./${QT_VERSION}/gcc_64/lib/{cmake,pkgconfig,libQt5Bootstrap.a}
+
 
 for v in *.jsc *.log *.pro *.pro.user *.qmake.stash *.qmlc .DS_Store *_debug* *.la *.prl; do
 	find . -name ${v} -exec rm -rf {} \;
@@ -18,7 +21,7 @@ done
 
 mkdir -p ./${QT_VERSION}/gcc_64/_bin
 for v in moc qmake qmlimportscanner qt.conf rcc uic; do
-	mv ./${QT_VERSION}/gcc_64/bin/${v} ./${QT_VERSION}/gcc_64/_bin/${v}
+	mv ./${QT_VERSION}/gcc_64/bin/${v} ./${QT_VERSION}/gcc_64/_bin/
 done
 rm -rf ./${QT_VERSION}/gcc_64/bin && mv ./${QT_VERSION}/gcc_64/_bin ./${QT_VERSION}/gcc_64/bin
 
