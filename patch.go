@@ -14,6 +14,9 @@ func main() {
 	if len(os.Args) >= 2 {
 		pPath = os.Args[1]
 	}
+	if !strings.Contains(pPath, "5.12.0") {
+		pPath = filepath.Join(pPath, "5.12.0", "gcc_64")
+	}
 
 	for _, fn := range []string{
 		"lib/libQt5Core.so.5.12.0",
