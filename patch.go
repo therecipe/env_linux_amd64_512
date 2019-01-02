@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	pPath := filepath.Join("/usr", "local", ".env_linux_amd64", "5.12.0", "gcc_64")
+	pPath := filepath.Join("/var", "tmp", ".env_linux_amd64", "5.12.0", "gcc_64")
 	if len(os.Args) >= 2 {
 		pPath = os.Args[1]
 	}
